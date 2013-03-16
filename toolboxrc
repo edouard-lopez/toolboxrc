@@ -95,21 +95,4 @@ quitIfMissing() {
     fi
 }
 
-# remove Catalina.pid after tomcat has been shutdown
-# @param, $1, pid filename (if different from 'catalina.pid')
-removePid() {
-	# default value
-	if [[ -z "$1" ]]
-	then
-		tomcatPid="catalina.pid"
-	else
-		tomcatPid="$1"
-	fi
-
-	catalinaPid="$tomcatDir/bin/$tomcatPid"
-	if [[ -e "$catalinaPid" ]]
-	then
-        printf "[i] Removing 'catalina.pid'\n"
-        rm -fv "$catalinaPid"
-	fi
-}
+# eof
